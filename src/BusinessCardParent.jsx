@@ -16,13 +16,22 @@ export default class BusinessCardParent extends Component {
         }
     }
 
+    updateState = (stateKeyId, newStateValue) =>{
+        this.setState({
+            [stateKeyId]: newStateValue
+        })
+    }
 
     render(){
         if(this.state.editMode){
             // if edit is true, show the form
 
             return(
-                <BusinessCardForm />
+                <BusinessCardForm 
+                name={this.state.name} 
+                email={this.state.email}
+                setParentState={this.updateState}
+                />
             )
         } else {
             return(
